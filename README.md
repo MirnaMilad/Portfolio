@@ -24,7 +24,7 @@ A modern, high-performance portfolio website built with **Angular 20** featuring
 ### 🏗️ **Architecture & Performance**
 
 - ⚡ **Angular 20** with experimental zoneless change detection
-- 🎯 **Server-Side Generation (SSG)** for optimal performance and SEO
+- 🎯 **Static-site Generation (SSG)** for optimal performance and SEO
 - 📦 **Signal-based state management** - Modern reactive programming
 - 🚀 **Optimized bundles** with tree-shaking and lazy loading
 - 📱 **Responsive design** - Mobile-first approach
