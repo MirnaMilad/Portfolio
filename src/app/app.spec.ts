@@ -1,25 +1,51 @@
+import { Component } from '@angular/core';
+import { ComponentFixture, TestBed } from '@angular/core/testing';
+import { By } from '@angular/platform-browser';
 import { provideZonelessChangeDetection } from '@angular/core';
-import { TestBed } from '@angular/core/testing';
-import { App } from './app';
+import { provideRouter } from '@angular/router';
+import { provideLocationMocks } from '@angular/common/testing';
+import { Navbar } from './layout/navbar/navbar';
 
-describe('App', () => {
+@Component({
+  standalone: true,
+  template: `<app-navbar></app-navbar>`,
+  imports: [Navbar],
+})
+class HostComponent {}
+
+describe('HostComponent (with Navbar)', () => {
+  let fixture: ComponentFixture<HostComponent>;
+  let component: HostComponent;
+
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [App],
-      providers: [provideZonelessChangeDetection()]
+      imports: [HostComponent],
+      providers: [
+        provideZonelessChangeDetection(),
+        provideRouter([]),
+        provideLocationMocks(),
+      ],
     }).compileComponents();
-  });
 
-  it('should create the app', () => {
-    const fixture = TestBed.createComponent(App);
-    const app = fixture.componentInstance;
-    expect(app).toBeTruthy();
-  });
-
-  it('should render title', () => {
-    const fixture = TestBed.createComponent(App);
+    fixture = TestBed.createComponent(HostComponent);
+    component = fixture.componentInstance;
     fixture.detectChanges();
-    const compiled = fixture.nativeElement as HTMLElement;
-    expect(compiled.querySelector('h1')?.textContent).toContain('Hello, Portfolio');
+  });
+
+  it('should create the host component', () => {
+    expect(component).toBeTruthy();
+  });
+
+  it('should render the Navbar inside the host', () => {
+    const navbar = fixture.debugElement.query(By.directive(Navbar));
+    expect(navbar).toBeTruthy();
+  });
+
+  it('should render correct nav items', () => {
+    const navLinks = fixture.debugElement
+      .queryAll(By.css('.nav-link'))
+      .map(el => el.nativeElement.textContent.trim());
+
+    expect(navLinks).toContain('Home');
   });
 });
