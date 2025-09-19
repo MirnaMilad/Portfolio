@@ -1,4 +1,6 @@
-export const FOOTER_CONFIG: { icon: string; url: string }[] = [
+import { SocialLink } from './footer.model';
+
+export const FOOTER_CONFIG: SocialLink[] = [
   { icon: 'bi-facebook', url: 'https://web.facebook.com/miro.milad.5/' },
   {
     icon: 'bi-whatsapp',
