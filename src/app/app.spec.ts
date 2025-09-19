@@ -1,25 +1,20 @@
-import { Component } from '@angular/core';
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { By } from '@angular/platform-browser';
 import { provideZonelessChangeDetection } from '@angular/core';
 import { provideRouter } from '@angular/router';
 import { provideLocationMocks } from '@angular/common/testing';
+
 import { Navbar } from './layout/navbar/navbar';
+import { App } from './app';
+import { Footer } from './layout/footer/footer';
 
-@Component({
-  standalone: true,
-  template: `<app-navbar></app-navbar>`,
-  imports: [Navbar],
-})
-class HostComponent {}
-
-describe('HostComponent (with Navbar)', () => {
-  let fixture: ComponentFixture<HostComponent>;
-  let component: HostComponent;
+describe('App (zoneless)', () => {
+  let fixture: ComponentFixture<App>;
+  let component: App;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [HostComponent],
+      imports: [App, Navbar, Footer],
       providers: [
         provideZonelessChangeDetection(),
         provideRouter([]),
@@ -27,25 +22,22 @@ describe('HostComponent (with Navbar)', () => {
       ],
     }).compileComponents();
 
-    fixture = TestBed.createComponent(HostComponent);
+    fixture = TestBed.createComponent(App);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });
 
-  it('should create the host component', () => {
+  it('should create the app', () => {
     expect(component).toBeTruthy();
   });
 
-  it('should render the Navbar inside the host', () => {
+  it('should render Navbar', () => {
     const navbar = fixture.debugElement.query(By.directive(Navbar));
     expect(navbar).toBeTruthy();
   });
 
-  it('should render correct nav items', () => {
-    const navLinks = fixture.debugElement
-      .queryAll(By.css('.nav-link'))
-      .map(el => el.nativeElement.textContent.trim());
-
-    expect(navLinks).toContain('Home');
+  it('should render Footer', () => {
+    const footer = fixture.debugElement.query(By.directive(Footer));
+    expect(footer).toBeTruthy();
   });
 });

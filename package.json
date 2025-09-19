@@ -41,6 +41,7 @@
     "@commitlint/config-conventional": "^19.8.1",
     "angular-eslint": "^20.3.0",
     "bootstrap": "^5.3.8",
+    "bootstrap-icons": "^1.13.1",
     "eslint": "^9.35.0",
     "eslint-config-prettier": "^10.1.8",
     "eslint-plugin-prettier": "^5.5.4",

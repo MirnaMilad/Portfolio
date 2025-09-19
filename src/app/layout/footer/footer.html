@@ -1,0 +1,7 @@
+<footer class="my-5 text-center">
+  @for (item of socialLinks; track item.icon) {
+    <a [href]="item.url" target="_blank" rel="noopener noreferrer">
+      <i class="icon bi {{ item.icon }} text-dark px-3"></i>
+    </a>
+  }
+</footer>
