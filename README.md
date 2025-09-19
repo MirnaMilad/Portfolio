@@ -133,7 +133,6 @@ This portfolio is automatically deployed to GitHub Pages using GitHub Actions:
 ### **Quality Gates**
 
 ```bash
-# Pre-commit hooks enforce:
 ✓ Code formatting (Prettier)
 ✓ Linting rules (ESLint)
 ✓ Unit tests pass
@@ -144,7 +143,6 @@ This portfolio is automatically deployed to GitHub Pages using GitHub Actions:
 ### **Test Coverage**
 
 - Target: **>80%** code coverage
-- Reports generated in `coverage/` directory
 - Integrated with CI pipeline
 
 ---
@@ -182,17 +180,14 @@ chore: update dependencies
 
 ### **Bundle Analysis**
 
-- Initial bundle: **~300KB** (gzipped)
 - Lazy-loaded routes reduce initial load
 - Tree-shaking eliminates unused code
-- **90+** Lighthouse performance score
 
 ### **SEO & Accessibility**
 
 - ✅ **Pre-rendered HTML** with SSG
 - ✅ **Meta tags** for social sharing
 - ✅ **Semantic HTML** structure
-- ✅ **ARIA labels** for accessibility
 - ✅ **Alt text** for all images
 
 ---
@@ -211,7 +206,6 @@ chore: update dependencies
 
 - 📋 **TypeScript strict mode** - Type safety
 - 🏗️ **SOLID principles** - Maintainable architecture
-- 🧪 **Test-driven development** - Reliable code
 - 📖 **Self-documenting code** - Clear naming conventions
 - 🔄 **Continuous integration** - Automated quality checks
 
