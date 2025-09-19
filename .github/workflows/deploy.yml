@@ -3,7 +3,7 @@ name: Deploy Angular SSG to GitHub Pages
 on:
   push:
     branches:
-      - main 
+      - main
 
 jobs:
   build-deploy:
@@ -30,3 +30,5 @@ jobs:
         with:
           branch: gh-pages
           folder: dist/Portfolio/browser
+          clean: true
+          token: ${{ secrets.GITHUB_TOKEN }}

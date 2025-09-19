@@ -19,9 +19,12 @@
           "builder": "@angular/build:application",
           "options": {
             "outputMode": "static",
+            "outputPath": "dist/Portfolio",
+            "baseHref": "/Portfolio/",
             "browser": "src/main.ts",
             "tsConfig": "tsconfig.app.json",
             "inlineStyleLanguage": "scss",
+            "prerender": true,
             "assets": [
               {
                 "glob": "**/*",
@@ -60,6 +63,7 @@
           },
           "defaultConfiguration": "production"
         },
+
         "serve": {
           "builder": "@angular/build:dev-server",
           "configurations": {
@@ -87,6 +91,13 @@
               }
             ],
             "styles": ["src/styles.scss"]
+          }
+        },
+        "deploy": {
+          "builder": "angular-cli-ghpages:deploy",
+          "options": {
+            "baseHref": "/portfolio/",
+            "outputPath": "dist/Portfolio/browser"
           }
         }
       }
