@@ -1,0 +1,49 @@
+<!-- Mobile Navbar -->
+<nav class="navbar navbar-light bg-light d-lg-none border-bottom">
+  <div class="container-fluid justify-content-end">
+    <button
+      class="navbar-toggler"
+      type="button"
+      data-bs-toggle="offcanvas"
+      data-bs-target="#mobileSidebar"
+      aria-controls="mobileSidebar">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+  </div>
+</nav>
+
+<!-- Offcanvas (Mobile Sidebar) -->
+<div
+  class="offcanvas offcanvas-end d-lg-none"
+  tabindex="-1"
+  id="mobileSidebar"
+  aria-labelledby="mobileSidebarLabel">
+  <div class="offcanvas-header">
+    <h5 class="offcanvas-title" id="mobileSidebarLabel">Menu</h5>
+    <button
+      type="button"
+      class="btn-close"
+      data-bs-dismiss="offcanvas"
+      aria-label="Close"></button>
+  </div>
+  <div class="offcanvas-body">
+    <ul class="nav flex-column bg-white">
+      @for (item of navItems; track item.label) {
+        <li class="nav-item">
+          <a class="nav-link" [routerLink]="item.link">{{ item.label }}</a>
+        </li>
+      }
+    </ul>
+  </div>
+</div>
+
+<!-- Sidebar (Large screens) -->
+<div class="sidebar d-none d-lg-block bg-light border-end">
+  <ul class="nav justify-content-end p-3 bg-white">
+    @for (item of navItems; track item.label) {
+      <li class="nav-item">
+        <a class="nav-link" [routerLink]="item.link">{{ item.label }}</a>
+      </li>
+    }
+  </ul>
+</div>

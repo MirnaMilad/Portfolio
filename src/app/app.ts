@@ -1,12 +1,12 @@
-import { Component } from '@angular/core';
-import { RouterOutlet } from '@angular/router';
+import { Component, ChangeDetectionStrategy } from '@angular/core';
+import { Navbar } from './layout/navbar/navbar';
 
 @Component({
   selector: 'app-root',
-  imports: [RouterOutlet],
+  imports: [Navbar],
   templateUrl: './app.html',
-  styleUrl: './app.scss'
+  standalone: true,
+  styleUrls: ['./app.scss'],
+  changeDetection: ChangeDetectionStrategy.OnPush,
 })
-export class App {
-  protected title = 'Portfolio';
-}
+export class App {}
