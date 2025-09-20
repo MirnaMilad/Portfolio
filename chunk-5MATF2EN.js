@@ -1,1 +1,0 @@
-import{$a as c,Aa as o,Va as n,Wa as s}from"./chunk-EVL5MMRX.js";var a=class t{static \u0275fac=function(e){return new(e||t)};static \u0275cmp=o({type:t,selectors:[["app-projects"]],decls:3,vars:0,consts:[[1,"container","py-5"]],template:function(e,p){e&1&&(n(0,"section",0)(1,"p"),c(2,"Coming Soon!"),s()())},encapsulation:2,changeDetection:0})};export{a as Projects};
