@@ -7,3 +7,18 @@
 .content {
   flex: 1;
 }
+.card {
+  border: none;
+}
+::-webkit-scrollbar {
+  width: 0.625rem;
+  height: 0.625rem;
+}
+::-webkit-scrollbar-track {
+  background: var(--bs-warning);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--bs-secondary);
+  border-radius: 0.625rem;
+}
