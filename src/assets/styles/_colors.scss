@@ -1,0 +1,95 @@
+:root {
+  --portfolio-primary: #fbbf24;
+  --portfolio-primary-dark: #d97706;
+  --portfolio-primary-light: #fef3c7;
+  --portfolio-secondary: #111827;
+  --portfolio-accent: #f59e0b;
+  --portfolio-success: #10b981;
+
+  --color-white: #ffffff;
+  --color-black: #000000;
+  --color-gray-50: #f8f9fa;
+  --color-gray-100: #e9ecef;
+  --color-gray-200: #dee2e6;
+  --color-gray-300: #ced4da;
+  --color-gray-400: #adb5bd;
+  --color-gray-500: #6c757d;
+  --color-gray-600: #495057;
+  --color-gray-700: #343a40;
+  --color-gray-800: #212529;
+  --color-gray-900: #0d1117;
+
+  --skill-expert: #10b981;
+  --skill-expert-light: #d1fae5;
+  --skill-expert-dark: #047857;
+
+  --skill-advanced: #f59e0b;
+  --skill-advanced-light: #fef3c7;
+  --skill-advanced-dark: #d97706;
+
+  --skill-intermediate: #06b6d4;
+  --skill-intermediate-light: #cffafe;
+  --skill-intermediate-dark: #0891b2;
+
+  --skill-beginner: #8b5cf6;
+  --skill-beginner-light: #ede9fe;
+  --skill-beginner-dark: #7c3aed;
+
+  // Shadow colors with opacity
+  --shadow-light: rgba(0, 0, 0, 0.1);
+  --shadow-medium: rgba(0, 0, 0, 0.15);
+  --shadow-dark: rgba(0, 0, 0, 0.25);
+
+  // Skill card specific shadows
+  --shadow-success: rgba(25, 135, 84, 0.25);
+  --shadow-warning: rgba(255, 193, 7, 0.25);
+  --shadow-info: rgba(13, 202, 240, 0.25);
+  --shadow-primary: rgba(13, 110, 253, 0.25);
+
+  // Background overlays
+  --overlay-light: rgba(255, 255, 255, 0.8);
+  --overlay-medium: rgba(255, 255, 255, 0.9);
+  --overlay-dark: rgba(0, 0, 0, 0.05);
+
+  --border-light: rgba(255, 255, 255, 0.2);
+  --border-gray: rgba(108, 117, 125, 0.2);
+
+  --gradient-primary-start: var(--portfolio-primary);
+  --gradient-primary-end: var(--portfolio-primary-dark);
+  --gradient-secondary-start: var(--portfolio-secondary);
+  --gradient-secondary-end: var(--portfolio-primary);
+  --gradient-light-start: #fffbeb;
+  --gradient-light-end: #fef3c7;
+
+  --color-gray-500: #6c757d;
+  --color-gray-600: #495057;
+  --color-gray-700: #343a40;
+  --color-gray-800: #374151;
+  --color-gray-900: #111827;
+
+  --hero-bg-gradient: linear-gradient(
+    135deg,
+    var(--gradient-light-start) 0%,
+    var(--gradient-light-end) 100%
+  );
+  --hero-btn-gradient: linear-gradient(
+    135deg,
+    var(--color-gray-900) 0%,
+    var(--color-gray-800) 100%
+  );
+  --primary-gradient: linear-gradient(
+    90deg,
+    var(--portfolio-primary) 0%,
+    var(--portfolio-primary-dark) 100%
+  );
+
+  --bg-white: var(--color-white);
+  --bg-white-90: rgba(255, 255, 255, 0.9);
+  --bg-white-95: rgba(255, 255, 255, 0.95);
+  --bg-overlay-white-40: rgba(255, 255, 255, 0.4);
+  --bg-gray-light: rgba(108, 117, 125, 0.1);
+
+  --border-white-30: rgba(255, 255, 255, 0.3);
+
+  --text-shadow-primary: 0 0.125rem 0.25rem rgba(251, 191, 36, 0.15);
+}

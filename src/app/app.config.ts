@@ -2,7 +2,11 @@ import {
   ApplicationConfig,
   provideZonelessChangeDetection,
 } from '@angular/core';
-import { provideRouter } from '@angular/router';
+import {
+  provideRouter,
+  withPreloading,
+  PreloadAllModules,
+} from '@angular/router';
 
 import { routes } from './app.routes';
 import {
@@ -13,7 +17,7 @@ import {
 export const appConfig: ApplicationConfig = {
   providers: [
     provideZonelessChangeDetection(),
-    provideRouter(routes),
+    provideRouter(routes, withPreloading(PreloadAllModules)),
     provideClientHydration(withEventReplay()),
   ],
 };
