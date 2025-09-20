@@ -1,0 +1,1 @@
+import{$a as n,Aa as s,Va as i,Wa as l}from"./chunk-EVL5MMRX.js";var o=class t{static \u0275fac=function(e){return new(e||t)};static \u0275cmp=s({type:t,selectors:[["app-skills"]],decls:2,vars:0,template:function(e,c){e&1&&(i(0,"p"),n(1,"skills works!"),l())},encapsulation:2,changeDetection:0})};export{o as Skills};
