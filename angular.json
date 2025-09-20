@@ -25,15 +25,7 @@
             "tsConfig": "tsconfig.app.json",
             "inlineStyleLanguage": "scss",
             "prerender": true,
-
-            "assets": [
-              "src/assets",
-              {
-                "glob": "index.html",
-                "input": "dist/Portfolio/browser",
-                "output": "/404.html"
-              }
-            ],
+            "assets": ["src/assets"],
             "styles": [
               "node_modules/bootstrap/dist/css/bootstrap.min.css",
               "node_modules/bootstrap-icons/font/bootstrap-icons.css",
@@ -100,7 +92,7 @@
         "deploy": {
           "builder": "angular-cli-ghpages:deploy",
           "options": {
-            "baseHref": "/portfolio/",
+            "baseHref": "/Portfolio/",
             "outputPath": "dist/Portfolio/browser"
           }
         }
