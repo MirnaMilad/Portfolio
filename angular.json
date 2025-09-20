@@ -25,11 +25,13 @@
             "tsConfig": "tsconfig.app.json",
             "inlineStyleLanguage": "scss",
             "prerender": true,
+
             "assets": [
               "src/assets",
               {
-                "glob": "**/*",
-                "input": "public"
+                "glob": "index.html",
+                "input": "dist/Portfolio/browser",
+                "output": "/404.html"
               }
             ],
             "styles": [
