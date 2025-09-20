@@ -1,1 +1,42 @@
-<app-intro></app-intro>
+<section class="container py-5 h-100">
+  <div class="row align-items-stretch h-100">
+    <!-- Text column -->
+    <div
+      class="col-12 col-lg-8 order-2 order-lg-1 d-flex flex-column justify-content-between text-center text-lg-start mb-4 mb-lg-0">
+      <div>
+        <p>Hello there! 👋</p>
+        <h1 class="header">Hi, I am Mirna</h1>
+        <h1 class="header">A Frontend Developer</h1>
+      </div>
+      <p class="description">
+        I'm a Senior Frontend Developer specializing in Angular and modern web
+        technologies. I build scalable, high-performance applications with clean
+        architecture and exceptional user experiences.
+      </p>
+      <p>📅 3+ Years Experience</p>
+      <div class="d-flex flex-column gap-3 align-items-start w-100">
+        <a
+          class="btn btn-warning rounded-pill fs-4"
+          href="assets/pdf/Mirna_Milad_Frontend_developer_CV.pdf"
+          download="Mirna_Resume.pdf">
+          <i class="bi bi-file-earmark"></i>
+          Download Resume
+        </a>
+        <a
+          class="btn bg-transparent border rounded-pill fs-5"
+          [routerLink]="'/projects'">
+          View Projects
+        </a>
+      </div>
+    </div>
+
+    <!-- Image column -->
+    <div
+      class="col-12 col-lg-4 order-1 order-lg-2 d-flex justify-content-center align-items-center">
+      <img
+        src="assets/images/avatar.png"
+        alt="Intro Image"
+        class="img-fluid rounded-circle" />
+    </div>
+  </div>
+</section>
