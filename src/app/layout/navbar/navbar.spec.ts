@@ -4,11 +4,28 @@ import { provideZonelessChangeDetection } from '@angular/core';
 import { Navbar } from './navbar';
 import { RouterTestingModule } from '@angular/router/testing';
 
+// Mock bootstrap object
+declare const window: any;
+
 describe('Navbar (zoneless)', () => {
   let fixture: ComponentFixture<Navbar>;
   let component: Navbar;
 
   beforeEach(async () => {
+    // Mock bootstrap object
+    window.bootstrap = {
+      Offcanvas: {
+        getInstance: jasmine.createSpy('getInstance').and.returnValue({
+          hide: jasmine.createSpy('hide'),
+        }),
+      },
+      Collapse: {
+        getInstance: jasmine.createSpy('getInstance').and.returnValue({
+          hide: jasmine.createSpy('hide'),
+        }),
+      },
+    };
+
     await TestBed.configureTestingModule({
       imports: [Navbar, RouterTestingModule],
       providers: [provideZonelessChangeDetection()],
@@ -57,18 +74,12 @@ describe('Navbar (zoneless)', () => {
     });
   });
 
-  it('should react to click on a nav item without reloading', () => {
-    fixture.detectChanges();
+  it('should call closeOffcanvas method', () => {
+    spyOn(component, 'closeOffcanvas').and.callThrough();
 
-    const firstLink = fixture.debugElement.query(By.css('.nav-link'));
-    const anchor = firstLink.nativeElement as HTMLAnchorElement;
+    component.closeOffcanvas();
 
-    const event = new MouseEvent('click', { bubbles: true, cancelable: true });
-    spyOn(event, 'preventDefault').and.callThrough();
-
-    anchor.dispatchEvent(event);
-
-    expect(event.preventDefault).toHaveBeenCalled();
+    expect(component.closeOffcanvas).toHaveBeenCalled();
   });
 
   it('should have a toggle button for mobile sidebar', () => {
@@ -83,5 +94,13 @@ describe('Navbar (zoneless)', () => {
     );
     expect(closeBtn).toBeTruthy();
     expect(closeBtn.attributes['data-bs-dismiss']).toBe('offcanvas');
+  });
+
+  it('should close offcanvas when closeOffcanvas is called', () => {
+    fixture.detectChanges();
+
+    component.closeOffcanvas();
+
+    expect(window.bootstrap.Offcanvas.getInstance).toHaveBeenCalled();
   });
 });

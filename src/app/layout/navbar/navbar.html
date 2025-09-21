@@ -14,26 +14,35 @@
 
 <!-- Offcanvas (Mobile Sidebar) -->
 <div
-  class="offcanvas offcanvas-end d-lg-none"
+  class="offcanvas offcanvas-end d-lg-none offcanvas-card"
   tabindex="-1"
   id="mobileSidebar"
   aria-labelledby="mobileSidebarLabel">
-  <div class="offcanvas-header">
-    <h5 class="offcanvas-title" id="mobileSidebarLabel">Menu</h5>
-    <button
-      type="button"
-      class="btn-close"
-      data-bs-dismiss="offcanvas"
-      aria-label="Close"></button>
-  </div>
-  <div class="offcanvas-body">
-    <ul class="nav flex-column bg-white">
-      @for (item of navItems; track item.label) {
-        <li class="nav-item">
-          <a class="nav-link" [routerLink]="item.link">{{ item.label }}</a>
-        </li>
-      }
-    </ul>
+  <div class="card h-100">
+    <div class="card-header offcanvas-header">
+      <h5 class="offcanvas-title card-title mb-0" id="mobileSidebarLabel">
+        Menu
+      </h5>
+      <button
+        type="button"
+        class="btn-close"
+        data-bs-dismiss="offcanvas"
+        aria-label="Close"></button>
+    </div>
+    <div class="card-body offcanvas-body">
+      <ul class="nav flex-column">
+        @for (item of navItems; track item.label) {
+          <li class="nav-item">
+            <a
+              class="nav-link"
+              [routerLink]="item.link"
+              (click)="closeOffcanvas()">
+              {{ item.label }}
+            </a>
+          </li>
+        }
+      </ul>
+    </div>
   </div>
 </div>
 

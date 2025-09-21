@@ -73,7 +73,7 @@ export const SKILLS_CATEGORIES: SkillCategory[] = [
         name: 'Bootstrap',
         icon: 'bi bi-bootstrap',
         category: 'frontend',
-        proficiency: 'Advanced',
+        proficiency: 'Expert',
       },
       {
         name: 'PrimeNG',
@@ -91,7 +91,7 @@ export const SKILLS_CATEGORIES: SkillCategory[] = [
         name: 'Responsive Design',
         icon: 'bi bi-phone-landscape',
         category: 'frontend',
-        proficiency: 'Expert',
+        proficiency: 'Advanced',
       },
       {
         name: 'React',
@@ -134,12 +134,6 @@ export const SKILLS_CATEGORIES: SkillCategory[] = [
         icon: 'bi bi-cloud-arrow-up',
         category: 'tools',
         proficiency: 'Advanced',
-      },
-      {
-        name: 'Figma',
-        icon: 'bi bi-palette2',
-        category: 'tools',
-        proficiency: 'Intermediate',
       },
       {
         name: 'Playwright',
@@ -209,7 +203,7 @@ export const SKILLS_CATEGORIES: SkillCategory[] = [
         proficiency: 'Expert',
       },
       {
-        name: 'Test-Driven Development',
+        name: 'Testing',
         icon: 'bi bi-check2-square',
         category: 'practices',
         proficiency: 'Advanced',
