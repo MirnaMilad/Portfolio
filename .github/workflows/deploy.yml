@@ -4,11 +4,14 @@ on:
   push:
     branches:
       - main
+  workflow_dispatch:
+
+permissions:
+  contents: write
 
 jobs:
   build-deploy:
     runs-on: ubuntu-latest
-
     steps:
       - name: Checkout source
         uses: actions/checkout@v4
@@ -22,19 +25,19 @@ jobs:
       - name: Install dependencies
         run: npm ci
 
+      # Build with local Angular CLI (no global ng)
       - name: Build Angular (SSG)
-        run: npm run build -- --configuration production --base-href=/Portfolio/
+        run: npx ng build --configuration=production --base-href=/Portfolio/
 
-      - name: Deploy to GitHub Pages
+      # Copy SPA fallback BEFORE deploy
+      - name: Add 404 fallback
+        run: |
+          cp dist/Portfolio/browser/index.html dist/Portfolio/browser/404.html
+
+      - name: Deploy to GitHub Pages (gh-pages branch)
         uses: JamesIves/github-pages-deploy-action@v4
         with:
           token: ${{ secrets.GITHUB_TOKEN }}
           branch: gh-pages
           folder: dist/Portfolio/browser
           clean: true
-
-      - name: Build
-        run: ng build --configuration=production --base-href=/Portfolio/
-      - name: SPA fallback for GitHub Pages
-        run: |
-          cp dist/Portfolio/browser/index.html dist/Portfolio/browser/404.html
