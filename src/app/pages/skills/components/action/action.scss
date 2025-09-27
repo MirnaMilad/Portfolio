@@ -1,68 +1,58 @@
 .cta-section {
   position: relative;
+  background-color: #fffbe6; /* fallback for old browsers */
+  background:
+    linear-gradient(120deg, var(--bs-warning) 0%, #ffe066 40%, #fffbe6 80%, #fff 100%),
+    url('data:image/svg+xml;utf8,<svg width="320" height="80" viewBox="0 0 320 80" fill="none" xmlns="http://www.w3.org/2000/svg"><polygon points="0,80 80,20 160,80 240,20 320,80" stroke="%23ffc107" stroke-width="4" fill="none" opacity="0.18"/></svg>');
+  background-size: cover, 320px 80px;
+  background-repeat: no-repeat, repeat-x;
+  background-blend-mode: lighten, normal;
   overflow: hidden;
+}
 
-  &::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><circle cx="50" cy="50" r="2" fill="%23000" opacity="0.05"/><circle cx="20" cy="20" r="1" fill="%23000" opacity="0.05"/><circle cx="80" cy="80" r="1" fill="%23000" opacity="0.05"/></svg>');
-    animation: float 15s ease-in-out infinite reverse;
+.cta-card {
+  position: relative;
+  border: 2px solid var(--bs-warning); /* Bootstrap warning color */
+  background: #fff;
+  border-radius: 2rem;
+  transition: transform 0.2s cubic-bezier(.4,2,.6,1);
+  box-shadow: none;
+}
+
+.cta-card:hover {
+  transform: scale(1.03);
+  border-color: #ffcd39; /* Slightly deeper warning on hover */
+}
+
+.cta-icon i {
+  font-size: 3rem;
+  color: #ffc107;
+}
+
+.cta-title {
+  font-size: 2.25rem;
+  font-weight: 700;
+}
+
+.cta-subtitle {
+  font-size: 1.125rem;
+  line-height: 1.6;
+}
+
+.btn {
+  transition: all 0.2s cubic-bezier(.4,2,.6,1);
+  font-weight: 600;
+}
+
+// Responsive adjustments
+@media (max-width: 768px) {
+  .cta-card {
+    padding: 3rem 1.5rem !important;
   }
 
   .btn {
-    font-weight: 600;
-    padding: 0.75rem 1.5rem;
-    border-width: 0.125rem;
-    transition: all 0.3s ease;
-    position: relative;
-    z-index: 1;
-
-    &.cta-primary-btn {
-      background: var(--color-gray-900) !important;
-      border-color: var(--color-gray-900) !important;
-
-      &:hover {
-        background: var(--color-gray-800) !important;
-        border-color: var(--color-gray-800) !important;
-        transform: translateY(-0.125rem);
-        box-shadow: var(--shadow-medium);
-      }
-    }
-
-    &.cta-outline-btn {
-      color: var(--color-gray-900) !important;
-      border-color: var(--color-gray-900) !important;
-
-      &:hover {
-        background: var(--color-gray-900) !important;
-        border-color: var(--color-gray-900) !important;
-        color: var(--color-white) !important;
-        transform: translateY(-0.125rem);
-        box-shadow: var(--shadow-medium);
-      }
-    }
-  }
-}
-
-@media (max-width: 36rem) {
-  .cta-section {
-    .btn {
-      width: 100%;
-      margin-bottom: 0.5rem;
-    }
-  }
-}
-@media (prefers-reduced-motion: reduce) {
-  *,
-  *::before,
-  *::after {
-    animation-duration: 0.01ms !important;
-    animation-iteration-count: 1 !important;
-    transition-duration: 0.01ms !important;
+    width: 100%;
+    margin-bottom: 0.5rem;
   }
 }
 
