@@ -6,6 +6,7 @@ import {
   provideRouter,
   withPreloading,
   PreloadAllModules,
+  withHashLocation,
 } from '@angular/router';
 
 import { routes } from './app.routes';
@@ -17,7 +18,11 @@ import {
 export const appConfig: ApplicationConfig = {
   providers: [
     provideZonelessChangeDetection(),
-    provideRouter(routes, withPreloading(PreloadAllModules)),
+    provideRouter(
+      routes,
+      withHashLocation(),
+      withPreloading(PreloadAllModules)
+    ),
     provideClientHydration(withEventReplay()),
   ],
 };
