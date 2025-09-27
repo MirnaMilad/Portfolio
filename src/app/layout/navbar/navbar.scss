@@ -1,6 +1,19 @@
 .nav-link {
   font-size: 1.25rem;
   color: var(--black);
+  transition: all 0.3s ease;
+
+  &.active {
+    color: var(--bs-warning);
+    font-weight: 600;
+    background-color: rgba(var(--bs-warning-rgb), 0.1);
+    border-radius: 0.5rem;
+    padding: 0.5rem 1rem;
+  }
+
+  &:hover {
+    color: var(--bs-warning);
+  }
 }
 
 // Offcanvas with card styling
@@ -42,6 +55,13 @@
 
         &:hover {
           background-color: var(--bs-light);
+          transform: translateX(5px);
+        }
+
+        &.active {
+          background-color: var(--bs-warning);
+          color: var(--bs-white);
+          font-weight: 600;
           transform: translateX(5px);
         }
 

@@ -36,6 +36,8 @@
             <a
               class="nav-link"
               [routerLink]="item.link"
+              routerLinkActive="active"
+              [routerLinkActiveOptions]="{ exact: true }"
               (click)="closeOffcanvas()">
               {{ item.label }}
             </a>
@@ -51,7 +53,13 @@
   <ul class="nav justify-content-end p-3 bg-white">
     @for (item of navItems; track item.label) {
       <li class="nav-item">
-        <a class="nav-link" [routerLink]="item.link">{{ item.label }}</a>
+        <a
+          class="nav-link"
+          [routerLink]="item.link"
+          routerLinkActive="active"
+          [routerLinkActiveOptions]="{ exact: true }">
+          {{ item.label }}
+        </a>
       </li>
     }
   </ul>
