@@ -1,0 +1,26 @@
+.footer-bottom {
+  border-top: 1px solid var(--overlay-orange-medium);
+  text-align: center;
+}
+
+.copyright {
+  color: var(--overlay-white);
+  font-size: 0.9rem;
+  letter-spacing: 0.3px;
+}
+
+.divider {
+  margin: 0 0.75rem;
+  color: var(--portfolio-orange);
+  opacity: 0.5;
+}
+@media (max-width: 767px) {
+  .copyright span {
+    display: block;
+    margin: 0.25rem 0;
+  }
+
+  .copyright .divider {
+    display: none;
+  }
+}

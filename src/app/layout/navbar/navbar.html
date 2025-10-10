@@ -1,66 +1,89 @@
-<!-- Mobile Navbar -->
-<nav class="navbar navbar-light bg-light d-lg-none border-bottom">
-  <div class="container-fluid justify-content-end">
+<!-- Desktop Navbar -->
+<nav class="navbar navbar-expand-lg fixed-top py-3">
+  <div class="container-fluid px-4">
+    <a class="navbar-brand" href="/">
+      <span class="brand-text">Mirna Milad</span>
+    </a>
+
+    <!-- Mobile Toggle Button -->
     <button
-      class="navbar-toggler"
+      class="navbar-toggler border-0 shadow-none"
       type="button"
       data-bs-toggle="offcanvas"
       data-bs-target="#mobileSidebar"
-      aria-controls="mobileSidebar">
-      <span class="navbar-toggler-icon"></span>
+      aria-controls="mobileSidebar"
+      aria-label="Toggle navigation">
+      <i class="bi bi-list fs-4"></i>
     </button>
-  </div>
-</nav>
 
-<!-- Offcanvas (Mobile Sidebar) -->
-<div
-  class="offcanvas offcanvas-end d-lg-none offcanvas-card"
-  tabindex="-1"
-  id="mobileSidebar"
-  aria-labelledby="mobileSidebarLabel">
-  <div class="card h-100">
-    <div class="card-header offcanvas-header">
-      <h5 class="offcanvas-title card-title mb-0" id="mobileSidebarLabel">
-        Menu
-      </h5>
-      <button
-        type="button"
-        class="btn-close"
-        data-bs-dismiss="offcanvas"
-        aria-label="Close"></button>
-    </div>
-    <div class="card-body offcanvas-body">
-      <ul class="nav flex-column">
+    <!-- Desktop Menu -->
+    <div class="collapse navbar-collapse justify-content-end">
+      <ul class="navbar-nav gap-1">
         @for (item of navItems; track item.label) {
           <li class="nav-item">
             <a
-              class="nav-link"
+              class="nav-link px-3 py-2"
               [routerLink]="item.link"
               routerLinkActive="active"
-              [routerLinkActiveOptions]="{ exact: true }"
-              (click)="closeOffcanvas()">
+              [routerLinkActiveOptions]="{ exact: true }">
               {{ item.label }}
             </a>
           </li>
         }
+        <li class="nav-item">
+          <a
+            href="assets/pdf/Mirna_Milad_Frontend_developer_CV.pdf"
+            download="Mirna_Milad_CV.pdf"
+            class="nav-link download-btn px-3 py-2">
+            <i class="bi bi-download"></i>
+            <span>Download CV</span>
+          </a>
+        </li>
       </ul>
     </div>
   </div>
-</div>
+</nav>
 
-<!-- Sidebar (Large screens) -->
-<div class="sidebar d-none d-lg-block bg-light border-end">
-  <ul class="nav justify-content-end p-3 bg-white">
-    @for (item of navItems; track item.label) {
-      <li class="nav-item">
+<!-- Mobile Sidebar -->
+<div
+  class="offcanvas offcanvas-end"
+  tabindex="-1"
+  id="mobileSidebar"
+  aria-labelledby="mobileSidebarLabel">
+  <div class="offcanvas-header border-bottom">
+    <h5 class="offcanvas-title" id="mobileSidebarLabel">
+      <span class="brand-text">Menu</span>
+    </h5>
+    <button
+      type="button"
+      class="btn-close shadow-none"
+      data-bs-dismiss="offcanvas"
+      aria-label="Close"></button>
+  </div>
+  <div class="offcanvas-body">
+    <ul class="navbar-nav">
+      @for (item of navItems; track item.label) {
+        <li class="nav-item">
+          <a
+            class="nav-link mobile-nav-link"
+            [routerLink]="item.link"
+            routerLinkActive="active"
+            [routerLinkActiveOptions]="{ exact: true }"
+            (click)="closeOffcanvas()">
+            {{ item.label }}
+          </a>
+        </li>
+      }
+      <li class="nav-item mt-3">
         <a
-          class="nav-link"
-          [routerLink]="item.link"
-          routerLinkActive="active"
-          [routerLinkActiveOptions]="{ exact: true }">
-          {{ item.label }}
+          href="assets/pdf/Mirna_Milad_Frontend_developer_CV.pdf"
+          download="Mirna_Milad_CV.pdf"
+          class="nav-link mobile-download-btn"
+          (click)="closeOffcanvas()">
+          <i class="bi bi-download"></i>
+          <span>Download CV</span>
         </a>
       </li>
-    }
-  </ul>
+    </ul>
+  </div>
 </div>

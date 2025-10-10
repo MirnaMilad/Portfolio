@@ -1,0 +1,66 @@
+.footer-widget {
+  color: var(--color-white);
+}
+
+.footer-description {
+  color: var(--overlay-white);
+  font-size: 0.95rem;
+  line-height: 1.6;
+  margin: 0;
+  margin-bottom: 1.5rem;
+}
+.brand-text {
+  color: var(--color-white);
+  font-size: 1.75rem;
+  font-weight: 700;
+  letter-spacing: -0.5px;
+  margin-bottom: 0.5rem;
+  text-shadow: 0 0 20px var(--shadow-orange);
+  transition: all 0.3s ease;
+}
+
+.brand-text:hover {
+  color: var(--portfolio-orange);
+}
+.brand-subtitle {
+  color: var(--portfolio-orange);
+  font-size: 1rem;
+  font-weight: 500;
+  margin: 0;
+  opacity: 0.9;
+}
+.footer-download-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.75rem 1.5rem;
+  background: transparent;
+  color: var(--portfolio-orange);
+  font-weight: 600;
+  font-size: 0.95rem;
+  border-radius: 6px;
+  text-decoration: none;
+  transition: all 0.3s ease;
+  border: 2px solid var(--portfolio-orange);
+
+  &:hover {
+    background: var(--portfolio-orange);
+    color: var(--portfolio-dark);
+    transform: translateY(-2px);
+    box-shadow: 0 4px 15px var(--shadow-orange-medium);
+  }
+
+  i {
+    font-size: 1rem;
+  }
+}
+@media (max-width: 767px) {
+  .brand-text {
+    font-size: 1.5rem;
+  }
+}
+@media (max-width: 576px) {
+  .footer-description {
+    font-size: 0.9rem;
+  }
+}

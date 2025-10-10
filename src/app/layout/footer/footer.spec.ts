@@ -1,44 +1,40 @@
-import { ComponentFixture, TestBed } from '@angular/core/testing';
-import { By } from '@angular/platform-browser';
+import { TestBed } from '@angular/core/testing';
 import { provideZonelessChangeDetection } from '@angular/core';
+import { provideRouter } from '@angular/router';
 import { Footer } from './footer';
+import { FOOTER_CONFIG, QUICK_LINKS, FOOTER_SKILLS, CONTACT_INFO } from './footer.config';
 
-describe('Footer (zoneless)', () => {
-  let fixture: ComponentFixture<Footer>;
+describe('Footer (Zoneless)', () => {
   let component: Footer;
-
-  // Make testLinks match the exact URLs you want to assert
-  const testLinks = [
-    { icon: 'bi-facebook', url: 'https://web.facebook.com/miro.milad.5/' },
-    { icon: 'bi-whatsapp', url: 'https://wa.me/201013898149' },
-    {
-      icon: 'bi-linkedin',
-      url: 'https://www.linkedin.com/in/mirna-milad-a802b3266/',
-    },
-  ];
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
       imports: [Footer],
-      providers: [provideZonelessChangeDetection()],
+      providers: [provideZonelessChangeDetection(), provideRouter([])],
     }).compileComponents();
 
-    fixture = TestBed.createComponent(Footer);
+    const fixture = TestBed.createComponent(Footer);
     component = fixture.componentInstance;
-    component.socialLinks = testLinks;
     fixture.detectChanges();
   });
 
-  it('should create the footer component', () => {
+  it('should create', () => {
     expect(component).toBeTruthy();
   });
 
-  it('should render all social links', () => {
-    const links = fixture.debugElement.queryAll(By.css('a'));
-    expect(links.length).toBe(testLinks.length);
+  it('should initialize socialLinks from FOOTER_CONFIG', () => {
+    expect(component.socialLinks).toEqual(FOOTER_CONFIG);
+  });
 
-    links.forEach((link, i) => {
-      expect(link.nativeElement.getAttribute('href')).toBe(testLinks[i].url);
-    });
+  it('should initialize quickLinks from QUICK_LINKS', () => {
+    expect(component.quickLinks).toEqual(QUICK_LINKS);
+  });
+
+  it('should initialize skills from FOOTER_SKILLS', () => {
+    expect(component.skills).toEqual(FOOTER_SKILLS);
+  });
+
+  it('should initialize contactInfo from CONTACT_INFO', () => {
+    expect(component.contactInfo).toEqual(CONTACT_INFO);
   });
 });

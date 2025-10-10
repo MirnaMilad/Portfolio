@@ -1,15 +1,9 @@
-<div class="bg-warning py-5 page-wrapper justify-content-center">
-  <div class="container h-100">
-    <div class="card rounded-4 h-100 overflow-hidden">
-      <div class="overflow-auto d-flex flex-column h-100">
-        <app-navbar></app-navbar>
-        <main class="content">
-          <router-outlet></router-outlet>
-        </main>
-        <footer class="footer">
-          <app-footer></app-footer>
-        </footer>
-      </div>
+<div class="min-vh-100 d-flex flex-column bg-light">
+  <app-navbar class="fixed-top"></app-navbar>
+  <main class="flex-grow-1 py-5 mt-5">
+    <div class="container-lg px-4 px-md-5">
+      <router-outlet></router-outlet>
     </div>
-  </div>
+  </main>
+  <app-footer></app-footer>
 </div>

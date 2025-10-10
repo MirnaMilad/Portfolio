@@ -41,6 +41,7 @@
     "@angular/ssr": "^20.0.3",
     "@commitlint/cli": "^19.8.1",
     "@commitlint/config-conventional": "^19.8.1",
+    "@emailjs/browser": "^4.4.1",
     "angular-eslint": "^20.3.0",
     "bootstrap": "^5.3.8",
     "bootstrap-icons": "^1.13.1",

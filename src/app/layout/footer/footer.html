@@ -1,7 +1,24 @@
-<footer class="my-4 text-center">
-  @for (item of socialLinks; track item.icon) {
-    <a [href]="item.url" target="_blank" rel="noopener noreferrer">
-      <i class="icon bi {{ item.icon }} text-dark px-3"></i>
-    </a>
-  }
+<footer class="footer-section py-5">
+  <div class="container">
+    <div class="row g-4">
+      <div class="col-lg-3 col-md-6">
+        <app-about-me></app-about-me>
+      </div>
+      <div class="col-lg-3 col-md-6">
+        <app-quick-links [quickLinks]="quickLinks"></app-quick-links>
+      </div>
+
+      <div class="col-lg-3 col-md-6">
+        <app-skills [skills]="skills"></app-skills>
+      </div>
+
+      <div class="col-lg-3 col-md-6">
+        <app-contact-info
+          [contactInfo]="contactInfo"
+          [socialLinks]="socialLinks"></app-contact-info>
+      </div>
+    </div>
+
+    <app-copyright></app-copyright>
+  </div>
 </footer>

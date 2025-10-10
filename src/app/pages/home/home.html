@@ -1,58 +1,61 @@
-<section class="p-5 h-100">
-  <div class="row align-items-stretch h-100">
-    <div
-      class="col-12 col-lg-8 order-2 order-lg-1 d-flex flex-column justify-content-between text-center text-lg-start mb-4 mb-lg-0">
-      <div>
-        <p>Hello there! 👋</p>
-        <h1 class="header">Hi, I am Mirna</h1>
-        <h1 class="header">A Frontend Developer</h1>
-      </div>
-      <p class="description">
-        I'm a Senior Frontend Developer specializing in Angular and modern web
-        technologies. I build scalable, high-performance applications with clean
-        architecture and exceptional user experiences.
-      </p>
-      <p>📅 3+ Years Experience</p>
+<section class="home-section">
+  <div class="container">
+    <div class="row align-items-center">
+      <!-- Content -->
+      <div class="col-lg-7 mb-5 mb-lg-0 order-2 order-lg-1">
+        <div class="content">
+          <p class="greeting">Hello! 👋</p>
+          <h1 class="title">I'm Mirna Milad</h1>
+          <h2 class="subtitle">Frontend Developer</h2>
 
-      <div class="skills-section text-center text-lg-start">
-        <h4 class="skills-title">Technologies I Use</h4>
-        <div
-          class="skills-inline d-flex flex-wrap justify-content-center justify-content-lg-start">
-          @for (skill of skills; track skill.name) {
-            <span class="skill-tag">
-              <i [class]="skill.icon"></i>
-              {{ skill.name }}
-            </span>
-          }
-          <a routerLink="/skills" class="view-all">View All →</a>
+          <p class="description">
+            I specialize in building modern web applications with Angular and
+            TypeScript. Passionate about creating clean, efficient, and
+            user-friendly solutions.
+          </p>
+
+          <p class="experience">
+            <i class="bi bi-calendar-check"></i>
+            3+ Years Experience
+          </p>
+
+          <!-- Skills Section -->
+          <div class="skills-showcase">
+            <div class="skills-list">
+              @for (skill of skills; track skill.name) {
+                <span class="skill-item">{{ skill.name }}</span>
+              }
+            </div>
+            <a routerLink="/skills" class="see-more-link">See More</a>
+          </div>
+
+          <div class="buttons">
+            <a
+              href="assets/pdf/Mirna_Milad_Frontend_developer_CV.pdf"
+              download="Mirna_Milad_CV.pdf"
+              class="btn-primary">
+              <i class="bi bi-download"></i>
+              Download CV
+            </a>
+            <a routerLink="/projects" class="btn-secondary">
+              <i class="bi bi-folder2-open"></i>
+              View Projects
+            </a>
+          </div>
         </div>
       </div>
-      <div
-        class="d-flex flex-column gap-3 align-items-center align-items-lg-start w-100">
-        <a
-          class="btn btn-warning rounded-pill fs-4"
-          href="assets/pdf/Mirna_Milad_Frontend_developer_CV.pdf"
-          download="Mirna_Resume.pdf">
-          <i class="bi bi-file-earmark"></i>
-          Download Resume
-        </a>
-        <a
-          class="btn bg-transparent border rounded-pill fs-5"
-          [routerLink]="'/projects'">
-          <i class="bi bi-collection me-2"></i>
-          View Projects
-        </a>
-      </div>
-    </div>
 
-    <div
-      class="col-12 col-lg-4 order-1 order-lg-2 d-flex justify-content-center align-items-start">
-      <img
-        ngSrc="assets/images/avatar.png"
-        alt="Intro Image"
-        width="300"
-        height="300"
-        class="img-fluid rounded-circle" />
+      <!-- Image -->
+      <div class="col-lg-5 order-1 order-lg-2">
+        <div class="image-container">
+          <img
+            ngSrc="assets/images/avatar.png"
+            alt="Mirna Milad"
+            width="400"
+            height="400"
+            class="profile-image" />
+        </div>
+      </div>
     </div>
   </div>
 </section>

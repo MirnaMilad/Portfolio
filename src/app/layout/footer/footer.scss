@@ -1,3 +1,13 @@
-.icon {
-  font-size: 2rem;
+.footer-section {
+  background: var(--gradient-dark-vertical);
+  border-top: 2px solid var(--portfolio-orange);
+  margin-top: auto;
+  position: relative;
+}
+
+@media (max-width: 576px) {
+  .footer-section {
+    padding-top: 2.5rem !important;
+    padding-bottom: 2.5rem !important;
+  }
 }

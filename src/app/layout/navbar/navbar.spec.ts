@@ -1,106 +1,53 @@
-import { ComponentFixture, TestBed } from '@angular/core/testing';
-import { By } from '@angular/platform-browser';
+import { TestBed } from '@angular/core/testing';
 import { provideZonelessChangeDetection } from '@angular/core';
+import { provideRouter } from '@angular/router';
 import { Navbar } from './navbar';
-import { RouterTestingModule } from '@angular/router/testing';
+import { NAV_ITEMS } from './navbar.config';
 
-// Mock bootstrap object
-declare const window: any;
-
-describe('Navbar (zoneless)', () => {
-  let fixture: ComponentFixture<Navbar>;
+describe('Navbar (Zoneless)', () => {
   let component: Navbar;
+  let fixture: any;
 
   beforeEach(async () => {
-    // Mock bootstrap object
-    window.bootstrap = {
-      Offcanvas: {
-        getInstance: jasmine.createSpy('getInstance').and.returnValue({
-          hide: jasmine.createSpy('hide'),
-        }),
-      },
-      Collapse: {
-        getInstance: jasmine.createSpy('getInstance').and.returnValue({
-          hide: jasmine.createSpy('hide'),
-        }),
-      },
-    };
-
     await TestBed.configureTestingModule({
-      imports: [Navbar, RouterTestingModule],
-      providers: [provideZonelessChangeDetection()],
+      imports: [Navbar],
+      providers: [provideZonelessChangeDetection(), provideRouter([])],
     }).compileComponents();
 
     fixture = TestBed.createComponent(Navbar);
     component = fixture.componentInstance;
-
-    component.navItems = [
-      { label: 'Home', link: '/home' },
-      { label: 'About', link: '/about' },
-      { label: 'Contact', link: '/contact' },
-    ];
-
     fixture.detectChanges();
   });
 
-  it('should create the component', () => {
+  it('should create', () => {
     expect(component).toBeTruthy();
   });
 
-  it('should render all nav items in mobile sidebar', () => {
-    const mobileLinks = fixture.debugElement
-      .queryAll(By.css('#mobileSidebar .nav-link'))
-      .map(el => el.nativeElement.textContent.trim());
-
-    expect(mobileLinks).toEqual(['Home', 'About', 'Contact']);
+  it('should have navItems defined from config', () => {
+    expect(component.navItems).toEqual(NAV_ITEMS);
   });
 
-  it('should render all nav items in desktop sidebar', () => {
-    const desktopLinks = fixture.debugElement
-      .queryAll(By.css('.sidebar .nav-link'))
-      .map(el => el.nativeElement.textContent.trim());
+  it('should call hide on offcanvas instance when closeOffcanvas is invoked', () => {
+    const mockHide = jasmine.createSpy('hide');
+    const mockInstance = { hide: mockHide };
+    const element = document.createElement('div');
+    element.id = 'mobileSidebar';
+    document.body.appendChild(element);
 
-    expect(desktopLinks).toEqual(['Home', 'About', 'Contact']);
-  });
-
-  it('should use correct hrefs for each nav item', () => {
-    const allLinks = fixture.debugElement.queryAll(By.css('.nav-link'));
-
-    component.navItems.forEach(item => {
-      const match = allLinks.find(
-        link => link.nativeElement.getAttribute('href') === item.link
-      );
-      expect(match).withContext(`${item.label} link missing`).toBeTruthy();
-    });
-  });
-
-  it('should call closeOffcanvas method', () => {
-    spyOn(component, 'closeOffcanvas').and.callThrough();
+    (globalThis as any).bootstrap = { Offcanvas: { getInstance: () => mockInstance } };
 
     component.closeOffcanvas();
+    expect(mockHide).toHaveBeenCalled();
 
-    expect(component.closeOffcanvas).toHaveBeenCalled();
+    document.body.removeChild(element);
+    delete (globalThis as any).bootstrap;
   });
 
-  it('should have a toggle button for mobile sidebar', () => {
-    const toggleBtn = fixture.debugElement.query(By.css('.navbar-toggler'));
-    expect(toggleBtn).toBeTruthy();
-    expect(toggleBtn.attributes['data-bs-target']).toBe('#mobileSidebar');
-  });
-
-  it('should have a close button inside mobile sidebar', () => {
-    const closeBtn = fixture.debugElement.query(
-      By.css('#mobileSidebar .btn-close')
-    );
-    expect(closeBtn).toBeTruthy();
-    expect(closeBtn.attributes['data-bs-dismiss']).toBe('offcanvas');
-  });
-
-  it('should close offcanvas when closeOffcanvas is called', () => {
-    fixture.detectChanges();
-
-    component.closeOffcanvas();
-
-    expect(window.bootstrap.Offcanvas.getInstance).toHaveBeenCalled();
+  it('should not throw if offcanvas element is missing', () => {
+    spyOn(console, 'error');
+    delete (globalThis as any).bootstrap;
+    (globalThis as any).bootstrap = { Offcanvas: { getInstance: (_el?: any) => undefined } };
+    expect(() => component.closeOffcanvas()).not.toThrow();
+    delete (globalThis as any).bootstrap;
   });
 });

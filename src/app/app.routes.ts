@@ -23,4 +23,11 @@ export const routes: Routes = [
         (m: typeof import('./pages/skills/skills')) => m.Skills
       ),
   },
+  {
+    path: 'contact',
+    loadComponent: () =>
+      import('./pages/contact/contact').then(
+        (m: typeof import('./pages/contact/contact')) => m.Contact
+      ),
+  },
 ];

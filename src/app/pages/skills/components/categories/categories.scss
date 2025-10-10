@@ -1,234 +1,94 @@
-@keyframes float {
-  0%,
-  100% {
-    transform: translateX(0rem) translateY(0rem) rotate(0deg);
-  }
-  33% {
-    transform: translateX(1.875rem) translateY(-1.875rem) rotate(120deg);
-  }
-  66% {
-    transform: translateX(-1.25rem) translateY(1.25rem) rotate(240deg);
-  }
-}
-
 .skills-section {
-  background: var(--bg-white);
-  position: relative;
+  background: transparent;
+  min-height: 100vh;
 }
 
-.skill-category-card {
-  .card {
-    border-radius: 1rem;
-    overflow: hidden;
-    transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
-    position: relative;
+.skill-category {
+  margin-bottom: 4rem;
+}
 
-    &::before {
-      content: '';
-      position: absolute;
-      top: 0;
-      left: 0;
-      right: 0;
-      height: 0.25rem;
-      background: var(--primary-gradient);
-      transform: scaleX(0);
-      transform-origin: left;
-      transition: transform 0.5s ease;
-    }
+.category-header {
+  text-align: center;
+  margin-bottom: 2.5rem;
+}
 
-    &:hover {
-      transform: translateY(-0.5rem);
-      box-shadow: 0 1.25rem 2.5rem var(--shadow-light) !important;
+.category-title {
+  font-size: 2rem;
+  font-weight: 700;
+  color: var(--portfolio-dark);
+  margin-bottom: 0.75rem;
+}
 
-      &::before {
-        transform: scaleX(1);
-      }
-    }
-
-    .card-header {
-      .card-title {
-        font-weight: 700;
-        font-size: 1.5rem;
-      }
-
-      .badge {
-        font-weight: 600;
-        border: 0.0625rem solid var(--color-gray-200);
-      }
-    }
-  }
+.category-description {
+  font-size: 1rem;
+  color: var(--color-text-gray);
+  margin: 0;
 }
 
 .skills-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(17.5rem, 1fr));
-  gap: 1rem;
+  grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+  gap: 1.5rem;
 }
 
-.skill-item {
-  .skill-card {
-    transition: all 0.3s ease;
-    border-width: 0.125rem !important;
-    background: var(--bg-white);
-    position: relative;
-    overflow: hidden;
-
-    &::before {
-      content: '';
-      position: absolute;
-      top: 0;
-      left: -100%;
-      width: 100%;
-      height: 100%;
-      background: linear-gradient(
-        90deg,
-        transparent,
-        var(--bg-overlay-white-40),
-        transparent
-      );
-      transition: left 0.6s ease;
-    }
-
-    &:hover {
-      transform: translateY(-0.25rem);
-      box-shadow: 0 0.5rem 1.5625rem var(--shadow-medium);
-
-      &::before {
-        left: 100%;
-      }
-
-      .skill-icon i {
-        transform: scale(1.1);
-      }
-    }
-
-    .skill-icon {
-      i {
-        transition: all 0.3s ease;
-        filter: drop-shadow(0 0.125rem 0.25rem var(--shadow-light));
-      }
-    }
-
-    .skill-name {
-      color: var(--color-gray-800);
-      font-weight: 600;
-    }
-
-    .proficiency-badge {
-      font-size: 0.75rem;
-      font-weight: 500;
-      padding: 0.25rem 0.5rem;
-      background: var(--bg-gray-light) !important;
-      color: var(--color-gray-600) !important;
-      border: 0.0625rem solid var(--border-gray);
-    }
-
-    .progress {
-      border-radius: 0.1875rem;
-      background: var(--bg-gray-light);
-      overflow: hidden;
-
-      .progress-bar {
-        border-radius: 0.1875rem;
-        transition: width 0.8s ease-in-out;
-      }
-    }
-  }
+.skill-card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 1.5rem 1rem;
+  background: var(--color-white);
+  border: 1px solid var(--border-dark);
+  border-radius: 12px;
+  transition: all 0.3s ease;
+  text-align: center;
+  min-height: 140px;
 }
 
-.skill-card.border-success {
-  border-color: var(--skill-expert) !important;
-
-  .skill-icon i {
-    color: var(--skill-expert);
-  }
-
-  &:hover {
-    box-shadow: 0 0.5rem 1.5625rem var(--shadow-success);
-  }
+.skill-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 20px var(--shadow-dark-medium);
+  border-color: var(--portfolio-orange);
 }
 
-.skill-card.border-warning {
-  border-color: var(--skill-advanced) !important;
-
-  .skill-icon i {
-    color: var(--skill-advanced-dark);
-  }
-
-  &:hover {
-    box-shadow: 0 0.5rem 1.5625rem var(--shadow-warning);
-  }
+.skill-card i {
+  font-size: 3rem;
+  margin-bottom: 0.75rem;
 }
 
-.skill-card.border-info {
-  border-color: var(--skill-intermediate) !important;
-
-  .skill-icon i {
-    color: var(--skill-intermediate);
-  }
-
-  &:hover {
-    box-shadow: 0 0.5rem 1.5625rem var(--shadow-info);
-  }
+.skill-name {
+  font-size: 0.875rem;
+  font-weight: 600;
+  color: var(--portfolio-dark);
+  line-height: 1.4;
 }
 
-.skill-card.border-primary {
-  border-color: var(--skill-beginner) !important;
-
-  .skill-icon i {
-    color: var(--skill-beginner);
-  }
-
-  &:hover {
-    box-shadow: 0 0.5rem 1.5625rem var(--shadow-primary);
-  }
-}
-@media (max-width: 48rem) {
+@media (max-width: 767px) {
   .skills-grid {
-    grid-template-columns: 1fr;
+    grid-template-columns: repeat(auto-fill, minmax(120px, 1fr));
+    gap: 1rem;
   }
 
-  .skill-category-card .card-header {
-    .row {
-      text-align: center;
-    }
-
-    .col-md-4 {
-      margin-top: 1rem;
-    }
-  }
-}
-@keyframes slideInUp {
-  from {
-    opacity: 0;
-    transform: translateY(1.875rem);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
-
-.skill-category-card {
-  animation: slideInUp 0.6s ease-out;
-  animation-fill-mode: both;
-
-  &:nth-child(1) {
-    animation-delay: 0.1s;
-  }
-  &:nth-child(2) {
-    animation-delay: 0.2s;
-  }
-  &:nth-child(3) {
-    animation-delay: 0.3s;
-  }
-  &:nth-child(4) {
-    animation-delay: 0.4s;
-  }
-}
-@media print {
   .skill-card {
-    border: 0.0625rem solid var(--color-gray-300) !important;
-    box-shadow: none !important;
+    padding: 1.25rem 0.75rem;
+    min-height: 120px;
+  }
+
+  .skill-card i {
+    font-size: 2.5rem;
+  }
+
+  .skill-name {
+    font-size: 0.75rem;
+  }
+
+  .category-title {
+    font-size: 1.5rem;
+  }
+}
+
+@media (max-width: 576px) {
+  .skills-grid {
+    grid-template-columns: repeat(2, 1fr);
   }
 }
