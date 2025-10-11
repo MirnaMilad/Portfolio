@@ -1,5 +1,6 @@
 .contact-info {
   padding: 2rem 0;
+  text-align: left;
 }
 
 .section-title {
@@ -7,6 +8,7 @@
   font-weight: 800;
   color: var(--portfolio-dark);
   margin-bottom: 1rem;
+  text-align: left;
 }
 
 .section-description {
@@ -14,18 +16,22 @@
   color: var(--color-text-gray);
   line-height: 1.8;
   margin-bottom: 3rem;
+  text-align: left;
 }
 
 .info-items {
   display: flex;
   flex-direction: column;
   gap: 2rem;
+  align-items: flex-start;
 }
 
 .info-item {
   display: flex;
   align-items: flex-start;
   gap: 1.5rem;
+  justify-content: flex-start;
+  width: 100%;
 }
 
 .info-item i {
@@ -46,20 +52,6 @@
   font-size: 1rem;
   color: var(--color-text-gray);
   margin: 0;
-}
-
-@media (max-width: 991px) {
-  .contact-info {
-    text-align: center;
-  }
-
-  .info-items {
-    align-items: center;
-  }
-
-  .info-item {
-    justify-content: center;
-  }
 }
 
 @media (max-width: 767px) {
