@@ -35,6 +35,10 @@
                 "glob": "sitemap.xml",
                 "input": "public",
                 "output": "/"
+              },
+              {
+                "glob": "**/*",
+                "input": "public"
               }
             ],
             "styles": [
