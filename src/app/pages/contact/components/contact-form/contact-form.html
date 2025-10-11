@@ -1,5 +1,10 @@
-<div class="contact-form-wrapper">
-  <form [formGroup]="contactForm" (ngSubmit)="onSubmit()" class="contact-form">
+<section class="contact-form-wrapper">
+  <h2 class="visually-hidden">Contact Form</h2>
+  <form
+    [formGroup]="contactForm"
+    (ngSubmit)="onSubmit()"
+    class="contact-form"
+    aria-label="Contact form">
     <div class="row">
       <div class="col-md-6 mb-4">
         <label for="name" class="form-label">Name *</label>
@@ -8,11 +13,15 @@
           id="name"
           class="form-control"
           formControlName="name"
-          placeholder="Your name" />
+          placeholder="Your name"
+          aria-required="true"
+          [attr.aria-invalid]="
+            contactForm.get('name')?.invalid && contactForm.get('name')?.touched
+          " />
         @if (
           contactForm.get('name')?.invalid && contactForm.get('name')?.touched
         ) {
-          <div class="error-message">Name is required</div>
+          <div class="error-message" role="alert">Name is required</div>
         }
       </div>
 
@@ -23,11 +32,16 @@
           id="email"
           class="form-control"
           formControlName="email"
-          placeholder="your.email@example.com" />
+          placeholder="your.email@example.com"
+          aria-required="true"
+          [attr.aria-invalid]="
+            contactForm.get('email')?.invalid &&
+            contactForm.get('email')?.touched
+          " />
         @if (
           contactForm.get('email')?.invalid && contactForm.get('email')?.touched
         ) {
-          <div class="error-message">
+          <div class="error-message" role="alert">
             @if (contactForm.get('email')?.hasError('required')) {
               <span>Email is required</span>
             }
@@ -46,12 +60,17 @@
         id="subject"
         class="form-control"
         formControlName="subject"
-        placeholder="What is this about?" />
+        placeholder="What is this about?"
+        aria-required="true"
+        [attr.aria-invalid]="
+          contactForm.get('subject')?.invalid &&
+          contactForm.get('subject')?.touched
+        " />
       @if (
         contactForm.get('subject')?.invalid &&
         contactForm.get('subject')?.touched
       ) {
-        <div class="error-message">Subject is required</div>
+        <div class="error-message" role="alert">Subject is required</div>
       }
     </div>
 
@@ -62,18 +81,25 @@
         class="form-control"
         formControlName="message"
         rows="6"
-        placeholder="Your message..."></textarea>
+        placeholder="Your message..."
+        aria-required="true"
+        [attr.aria-invalid]="
+          contactForm.get('message')?.invalid &&
+          contactForm.get('message')?.touched
+        "></textarea>
       @if (
         contactForm.get('message')?.invalid &&
         contactForm.get('message')?.touched
       ) {
-        <div class="error-message">Message is required</div>
+        <div class="error-message" role="alert">Message is required</div>
       }
     </div>
 
     @if (statusMessage) {
       <div
         class="status-message"
+        role="status"
+        aria-live="polite"
         [class.success]="isSuccess"
         [class.error]="!isSuccess">
         {{ statusMessage }}
@@ -83,14 +109,15 @@
     <button
       type="submit"
       class="btn-submit"
-      [disabled]="contactForm.invalid || isSubmitting">
+      [disabled]="contactForm.invalid || isSubmitting"
+      [attr.aria-busy]="isSubmitting">
       @if (isSubmitting) {
-        <span class="spinner"></span>
+        <span class="spinner" aria-hidden="true"></span>
         <span>Sending...</span>
       } @else {
-        <i class="bi bi-send"></i>
+        <i class="bi bi-send" aria-hidden="true"></i>
         <span>Send Message</span>
       }
     </button>
   </form>
-</div>
+</section>

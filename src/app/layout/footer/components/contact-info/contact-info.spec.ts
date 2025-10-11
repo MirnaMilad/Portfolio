@@ -12,20 +12,20 @@ describe('ContactInfo (Zoneless)', () => {
       label: 'Email',
       value: 'test@example.com',
       icon: 'bi-envelope',
-      link: 'mailto:test@example.com'
+      link: 'mailto:test@example.com',
     },
-    { label: 'Phone', value: '+1234567890', icon: 'bi-phone' }
+    { label: 'Phone', value: '+1234567890', icon: 'bi-phone' },
   ];
 
   const mockSocialLinks: SocialLinkModel[] = [
     { icon: 'bi-facebook', url: 'https://facebook.com' },
-    { icon: 'bi-twitter', url: 'https://twitter.com' }
+    { icon: 'bi-twitter', url: 'https://twitter.com' },
   ];
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
       imports: [ContactInfo],
-      providers: [provideZonelessChangeDetection()]
+      providers: [provideZonelessChangeDetection()],
     }).compileComponents();
 
     fixture = TestBed.createComponent(ContactInfo);

@@ -1,8 +1,12 @@
 .cta-section {
   position: relative;
   background-color: var(--color-warning-bg);
-  background: var(--gradient-warning), url('data:image/svg+xml;utf8,<svg width="320" height="80" viewBox="0 0 320 80" fill="none" xmlns="http://www.w3.org/2000/svg"><polygon points="0,80 80,20 160,80 240,20 320,80" stroke="%23ffc107" stroke-width="4" fill="none" opacity="0.18"/></svg>');
-  background-size: cover, 320px 80px;
+  background:
+    var(--gradient-warning),
+    url('data:image/svg+xml;utf8,<svg width="320" height="80" viewBox="0 0 320 80" fill="none" xmlns="http://www.w3.org/2000/svg"><polygon points="0,80 80,20 160,80 240,20 320,80" stroke="%23ffc107" stroke-width="4" fill="none" opacity="0.18"/></svg>');
+  background-size:
+    cover,
+    320px 80px;
   background-repeat: no-repeat, repeat-x;
   background-blend-mode: lighten, normal;
   overflow: hidden;
@@ -13,7 +17,7 @@
   border: 2px solid var(--color-warning);
   background: var(--color-white);
   border-radius: 2rem;
-  transition: transform 0.2s cubic-bezier(.4,2,.6,1);
+  transition: transform 0.2s cubic-bezier(0.4, 2, 0.6, 1);
   box-shadow: none;
 }
 
@@ -38,7 +42,7 @@
 }
 
 .btn {
-  transition: all 0.2s cubic-bezier(.4,2,.6,1);
+  transition: all 0.2s cubic-bezier(0.4, 2, 0.6, 1);
   font-weight: 600;
 }
 

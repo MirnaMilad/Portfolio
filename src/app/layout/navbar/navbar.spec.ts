@@ -34,7 +34,9 @@ describe('Navbar (Zoneless)', () => {
     element.id = 'mobileSidebar';
     document.body.appendChild(element);
 
-    (globalThis as any).bootstrap = { Offcanvas: { getInstance: () => mockInstance } };
+    (globalThis as any).bootstrap = {
+      Offcanvas: { getInstance: () => mockInstance },
+    };
 
     component.closeOffcanvas();
     expect(mockHide).toHaveBeenCalled();
@@ -46,7 +48,9 @@ describe('Navbar (Zoneless)', () => {
   it('should not throw if offcanvas element is missing', () => {
     spyOn(console, 'error');
     delete (globalThis as any).bootstrap;
-    (globalThis as any).bootstrap = { Offcanvas: { getInstance: (_el?: any) => undefined } };
+    (globalThis as any).bootstrap = {
+      Offcanvas: { getInstance: (_el?: any) => undefined },
+    };
     expect(() => component.closeOffcanvas()).not.toThrow();
     delete (globalThis as any).bootstrap;
   });

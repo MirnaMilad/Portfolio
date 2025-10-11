@@ -1,11 +1,11 @@
-<section class="home-section">
+<section class="home-section" aria-labelledby="home-heading">
   <div class="container">
     <div class="row align-items-center">
       <!-- Content -->
-      <div class="col-lg-7 mb-5 mb-lg-0 order-2 order-lg-1">
+      <article class="col-lg-7 mb-5 mb-lg-0 order-2 order-lg-1">
         <div class="content">
           <p class="greeting">Hello! 👋</p>
-          <h1 class="title">I'm Mirna Milad</h1>
+          <h1 id="home-heading" class="title">I'm Mirna Milad</h1>
           <h2 class="subtitle">Frontend Developer</h2>
 
           <p class="description">
@@ -15,46 +15,48 @@
           </p>
 
           <p class="experience">
-            <i class="bi bi-calendar-check"></i>
+            <i class="bi bi-calendar-check" aria-hidden="true"></i>
             3+ Years Experience
           </p>
 
           <!-- Skills Section -->
           <div class="skills-showcase">
-            <div class="skills-list">
+            <div class="skills-list" role="list">
               @for (skill of skills; track skill.name) {
-                <span class="skill-item">{{ skill.name }}</span>
+                <span class="skill-item" role="listitem">{{ skill.name }}</span>
               }
             </div>
             <a routerLink="/skills" class="see-more-link">See More</a>
           </div>
 
-          <div class="buttons">
+          <nav class="buttons" aria-label="Primary actions">
             <a
               href="assets/pdf/Mirna_Milad_Frontend_developer_CV.pdf"
               download="Mirna_Milad_CV.pdf"
-              class="btn-primary">
-              <i class="bi bi-download"></i>
+              class="btn-primary"
+              aria-label="Download Mirna Milad CV">
+              <i class="bi bi-download" aria-hidden="true"></i>
               Download CV
             </a>
             <a routerLink="/projects" class="btn-secondary">
-              <i class="bi bi-folder2-open"></i>
+              <i class="bi bi-folder2-open" aria-hidden="true"></i>
               View Projects
             </a>
-          </div>
+          </nav>
         </div>
-      </div>
+      </article>
 
       <!-- Image -->
       <div class="col-lg-5 order-1 order-lg-2">
-        <div class="image-container">
+        <figure class="image-container">
           <img
             ngSrc="assets/images/avatar.png"
-            alt="Mirna Milad"
+            alt="Mirna Milad - Frontend Developer"
             width="400"
             height="400"
-            class="profile-image" />
-        </div>
+            class="profile-image"
+            priority />
+        </figure>
       </div>
     </div>
   </div>

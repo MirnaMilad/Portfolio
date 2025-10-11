@@ -20,9 +20,11 @@
     transparent 100%
   );
 }
+
 .footer-widget {
   color: var(--color-white);
 }
+
 .skills-grid {
   display: flex;
   flex-direction: column;
@@ -30,7 +32,7 @@
 }
 
 .skill-item {
-  color: var(--overlay-white);
+  color: rgba(255, 255, 255, 0.85);
   font-size: 0.95rem;
   transition: color 0.3s ease;
 }

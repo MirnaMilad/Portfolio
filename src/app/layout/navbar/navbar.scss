@@ -1,27 +1,7 @@
 .navbar {
   background: var(--gradient-dark);
-  backdrop-filter: blur(12px) saturate(180%);
-  -webkit-backdrop-filter: blur(12px) saturate(180%);
   border-bottom: 2px solid var(--portfolio-orange);
   box-shadow: 0 2px 20px var(--shadow-light);
-  transition: all 0.3s ease;
-  position: relative;
-  
-  &::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    background: var(--gradient-orange-overlay);
-    pointer-events: none;
-  }
-}
-
-.navbar.scrolled {
-  box-shadow: 0 4px 30px var(--shadow-medium);
-  border-bottom-color: var(--portfolio-dark-orange);
 }
 
 .brand-text {
@@ -30,7 +10,7 @@
   font-weight: 700;
   letter-spacing: -0.5px;
   text-shadow: 0 0 20px var(--shadow-orange);
-  
+
   &:hover {
     color: var(--portfolio-orange);
   }
@@ -40,7 +20,7 @@
   color: var(--color-white);
   padding: 0.5rem;
   border: 1px solid var(--portfolio-orange);
-  
+
   &:hover {
     background-color: var(--overlay-orange-light);
   }
@@ -62,7 +42,7 @@
   border-radius: 6px;
   padding: 0.5rem 1rem;
   position: relative;
-  
+
   &::before {
     content: '';
     position: absolute;
@@ -74,7 +54,7 @@
     transition: all 0.3s ease;
     transform: translateX(-50%);
   }
-  
+
   &:hover::before {
     width: 80%;
   }
@@ -84,15 +64,10 @@
   color: var(--portfolio-dark);
   background: var(--gradient-primary);
   box-shadow: 0 4px 15px var(--shadow-orange-medium);
-  
+
   &::before {
     display: none;
   }
-}
-
-.nav-link:hover:not(.active) {
-  color: var(--portfolio-orange);
-  background-color: var(--overlay-orange-light);
 }
 
 .download-btn {
@@ -107,18 +82,18 @@
   transition: all 0.3s ease;
   text-decoration: none;
   border: 2px solid var(--portfolio-orange);
-  
+
   &::before {
     display: none;
   }
-  
+
   &:hover {
     background: var(--portfolio-orange);
     color: var(--portfolio-dark);
     transform: translateY(-2px);
     box-shadow: 0 4px 15px var(--shadow-orange-medium);
   }
-  
+
   i {
     font-size: 1rem;
   }
@@ -154,7 +129,7 @@
   color: var(--color-white);
   border: 1px solid transparent;
   transition: all 0.3s ease;
-  
+
   &:hover:not(.active) {
     background-color: var(--overlay-orange-light);
     border-color: var(--portfolio-orange);
@@ -204,47 +179,4 @@
 
 .btn-close:hover {
   opacity: 1;
-}
-
-.card-header {
-  background-color: var(--bs-light);
-  border-bottom: 1px solid var(--bs-border-color);
-  border-radius: 0.75rem 0.75rem 0 0;
-
-  .card-title {
-    color: var(--black);
-    font-weight: 600;
-  }
-
-  .btn-close {
-    background-size: 0.75em;
-  }
-}
-
-.card-body {
-  padding: 1.5rem;
-  border-radius: 0 0 0.75rem 0.75rem;
-
-  .nav-link {
-    padding: 0.75rem 1rem;
-    border-radius: 0.5rem;
-    transition: all 0.2s ease;
-    margin-bottom: 0.25rem;
-
-    &:hover {
-      background-color: var(--bs-light);
-      transform: translateX(5px);
-    }
-
-    &.active {
-      background-color: var(--bs-warning);
-      color: var(--bs-white);
-      font-weight: 600;
-      transform: translateX(5px);
-    }
-
-    &:last-child {
-      margin-bottom: 0;
-    }
-  }
 }

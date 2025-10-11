@@ -9,10 +9,7 @@ describe('App (Zoneless)', () => {
   beforeEach(async () => {
     await TestBed.configureTestingModule({
       imports: [App],
-      providers: [
-        provideZonelessChangeDetection(),
-        provideRouter([]),
-      ],
+      providers: [provideZonelessChangeDetection(), provideRouter([])],
     }).compileComponents();
 
     const fixture = TestBed.createComponent(App);

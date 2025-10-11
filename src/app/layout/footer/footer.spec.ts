@@ -2,7 +2,12 @@ import { TestBed } from '@angular/core/testing';
 import { provideZonelessChangeDetection } from '@angular/core';
 import { provideRouter } from '@angular/router';
 import { Footer } from './footer';
-import { FOOTER_CONFIG, QUICK_LINKS, FOOTER_SKILLS, CONTACT_INFO } from './footer.config';
+import {
+  FOOTER_CONFIG,
+  QUICK_LINKS,
+  FOOTER_SKILLS,
+  CONTACT_INFO,
+} from './footer.config';
 
 describe('Footer (Zoneless)', () => {
   let component: Footer;

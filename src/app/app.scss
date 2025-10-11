@@ -11,7 +11,7 @@
 ::-webkit-scrollbar-thumb {
   background: var(--gradient-primary);
   border-radius: var(--bs-border-radius-sm);
-  
+
   &:hover {
     background: var(--portfolio-dark-orange);
   }
@@ -29,11 +29,11 @@ html {
 .container-lg {
   position: relative;
   z-index: 1;
-  
+
   @media (min-width: 992px) {
     max-width: 1140px;
   }
-  
+
   @media (min-width: 1200px) {
     max-width: 1200px;
   }
