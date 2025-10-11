@@ -10,7 +10,7 @@ export const FOOTER_CONFIG: SocialLinkModel[] = [
   { icon: 'bi-whatsapp', url: 'https://wa.me/201013898149' },
   {
     icon: 'bi-linkedin',
-    url: 'https://www.linkedin.com/in/mirna-milad-a802b3266/',
+    url: 'https://www.linkedin.com/in/mirna-milad-frontend-developer/',
   },
   { icon: 'bi-github', url: 'https://github.com/MirnaMilad' },
 ];
