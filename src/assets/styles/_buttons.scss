@@ -28,12 +28,12 @@
 .btn-secondary {
   background: transparent;
   color: var(--portfolio-dark);
-  border: 2px solid var(--border-transparent);
+  border: 2px solid var(--portfolio-dark);
 
   &:hover {
-    background: var(--color-text-gray);
-    color: var(--portfolio-light-gray);
-    border-color: var(--color-text-gray);
+    background: var(--portfolio-dark);
+    color: var(--color-white);
+    border-color: var(--portfolio-dark);
     transform: translateY(-2px);
   }
 }

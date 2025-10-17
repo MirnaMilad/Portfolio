@@ -1,42 +1,64 @@
 <section class="projects-section" aria-labelledby="projects-heading">
   <div class="container">
-    <article class="coming-soon-wrapper">
-      <div class="coming-soon-content">
-        <div class="icon-wrapper" aria-hidden="true">
-          <i class="bi bi-rocket-takeoff"></i>
-        </div>
-        <h1 id="projects-heading" class="coming-soon-title">
-          Projects Coming Soon
-        </h1>
-        <p class="coming-soon-description">
-          I'm currently working on some exciting projects that will be showcased
-          here soon. Stay tuned for updates!
-        </p>
-        <div class="features" role="list">
-          <div class="feature-item" role="listitem">
-            <i class="bi bi-code-square" aria-hidden="true"></i>
-            <span>Web Applications</span>
+    <header class="section-header">
+      <h1 id="projects-heading" class="section-title">My Projects</h1>
+      <p class="section-description">
+        A showcase of my work and contributions to web development
+      </p>
+    </header>
+
+    <div class="projects-grid">
+      @for (project of projects(); track project.id) {
+        <article class="project-card" [class.featured]="project.featured">
+          <div class="project-image">
+            <img [src]="project.image" [alt]="project.title + ' screenshot'" />
+            @if (project.featured) {
+              <span class="featured-badge" aria-label="Featured project">
+                <i class="bi bi-star-fill" aria-hidden="true"></i>
+                Featured
+              </span>
+            }
           </div>
-          <div class="feature-item" role="listitem">
-            <i class="bi bi-phone" aria-hidden="true"></i>
-            <span>Mobile Apps</span>
+
+          <div class="project-content">
+            <h2 class="project-title">{{ project.title }}</h2>
+            <p class="project-description">{{ project.description }}</p>
+
+            <div class="project-tech">
+              @for (tech of project.technologies; track tech) {
+                <span class="tech-badge">{{ tech }}</span>
+              }
+            </div>
+
+            <div class="project-links">
+              @if (project.liveUrl) {
+                <a
+                  [href]="project.liveUrl"
+                  class="btn-primary"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  [attr.aria-label]="'View ' + project.title + ' live demo'">
+                  <i class="bi bi-box-arrow-up-right" aria-hidden="true"></i>
+                  <span>Live Demo</span>
+                </a>
+              }
+              @if (project.githubUrl) {
+                <a
+                  [href]="project.githubUrl"
+                  class="btn-secondary"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  [attr.aria-label]="
+                    'View ' + project.title + ' source code on GitHub'
+                  ">
+                  <i class="bi bi-github" aria-hidden="true"></i>
+                  <span>Source Code</span>
+                </a>
+              }
+            </div>
           </div>
-          <div class="feature-item" role="listitem">
-            <i class="bi bi-layers" aria-hidden="true"></i>
-            <span>Full Stack Solutions</span>
-          </div>
-        </div>
-        <nav class="cta-buttons" aria-label="Alternative actions">
-          <a routerLink="/skills" class="btn-primary">
-            <i class="bi bi-tools" aria-hidden="true"></i>
-            <span>View My Skills</span>
-          </a>
-          <a routerLink="/contact" class="btn-secondary">
-            <i class="bi bi-envelope" aria-hidden="true"></i>
-            <span>Get In Touch</span>
-          </a>
-        </nav>
-      </div>
-    </article>
+        </article>
+      }
+    </div>
   </div>
 </section>

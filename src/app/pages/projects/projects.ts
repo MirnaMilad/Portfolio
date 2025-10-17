@@ -1,11 +1,19 @@
-import { ChangeDetectionStrategy, Component } from '@angular/core';
-import { RouterLink } from '@angular/router';
+import {
+  ChangeDetectionStrategy,
+  Component,
+  signal,
+  type WritableSignal,
+} from '@angular/core';
+import type { Project } from './projects.model';
+import { PROJECTS } from './projects.config';
 
 @Component({
   selector: 'app-projects',
-  imports: [RouterLink],
+  imports: [],
   templateUrl: './projects.html',
   styleUrl: './projects.scss',
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
-export class Projects {}
+export class Projects {
+  projects: WritableSignal<Project[]> = signal<Project[]>(PROJECTS);
+}
