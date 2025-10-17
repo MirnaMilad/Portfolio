@@ -1,0 +1,80 @@
+// Project overview component styles
+.overview-section {
+  background: var(--color-white);
+  padding: 3rem;
+  border-radius: 20px;
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.08);
+}
+
+.section-title {
+  font-size: 2rem;
+  font-weight: 700;
+  color: var(--portfolio-dark);
+  margin-bottom: 2rem;
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+
+  i {
+    color: var(--portfolio-orange);
+    font-size: 1.75rem;
+  }
+}
+
+.project-description {
+  font-size: 1.125rem;
+  line-height: 1.8;
+  color: var(--color-text-gray);
+  margin-bottom: 2rem;
+}
+
+.highlights {
+  margin-top: 2.5rem;
+}
+
+.highlights-title {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: var(--portfolio-dark);
+  margin-bottom: 1.5rem;
+}
+
+.highlights-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+
+  li {
+    display: flex;
+    align-items: flex-start;
+    gap: 0.75rem;
+    font-size: 1rem;
+    color: var(--color-text-gray);
+    line-height: 1.6;
+
+    i {
+      color: var(--portfolio-orange);
+      font-size: 1.25rem;
+      margin-top: 0.125rem;
+      flex-shrink: 0;
+    }
+  }
+}
+
+// Responsive
+@media (max-width: 767px) {
+  .overview-section {
+    padding: 2rem;
+  }
+
+  .section-title {
+    font-size: 1.75rem;
+  }
+
+  .project-description {
+    font-size: 1rem;
+  }
+}

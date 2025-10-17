@@ -1,0 +1,56 @@
+<aside class="tech-section">
+  <h2 class="section-title">
+    <i class="bi bi-stack" aria-hidden="true"></i>
+    Tech Stack
+  </h2>
+  <div class="tech-stack">
+    @for (tech of project().technologies; track tech) {
+      <div class="tech-badge">
+        <i class="bi bi-check-circle-fill" aria-hidden="true"></i>
+        <span>{{ tech }}</span>
+      </div>
+    }
+  </div>
+
+  @if (project().techDetails) {
+    <div class="tech-details">
+      <h3 class="tech-details-title">Technical Highlights</h3>
+      @if (project().techDetails!.framework) {
+        <div class="tech-detail-item">
+          <strong>Framework:</strong>
+          {{ project().techDetails!.framework }}
+        </div>
+      }
+      @if (project().techDetails!.stateManagement) {
+        <div class="tech-detail-item">
+          <strong>State Management:</strong>
+          {{ project().techDetails!.stateManagement }}
+        </div>
+      }
+      @if (project().techDetails!.changeDetection) {
+        <div class="tech-detail-item">
+          <strong>Change Detection:</strong>
+          {{ project().techDetails!.changeDetection }}
+        </div>
+      }
+      @if (project().techDetails!.styling) {
+        <div class="tech-detail-item">
+          <strong>Styling:</strong>
+          {{ project().techDetails!.styling }}
+        </div>
+      }
+      @if (project().techDetails!.storage) {
+        <div class="tech-detail-item">
+          <strong>Storage:</strong>
+          {{ project().techDetails!.storage }}
+        </div>
+      }
+      @if (project().techDetails!.typescript) {
+        <div class="tech-detail-item">
+          <strong>TypeScript:</strong>
+          {{ project().techDetails!.typescript }}
+        </div>
+      }
+    </div>
+  }
+</aside>

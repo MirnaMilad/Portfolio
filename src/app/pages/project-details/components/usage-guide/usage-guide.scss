@@ -1,0 +1,91 @@
+// Usage guide component styles
+.usage-section {
+  margin-bottom: 2.5rem;
+}
+
+.section-title {
+  font-size: 2rem;
+  font-weight: 700;
+  color: var(--portfolio-dark);
+  margin-bottom: 2rem;
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+
+  i {
+    color: var(--portfolio-orange);
+    font-size: 1.75rem;
+  }
+}
+
+.usage-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 2rem;
+}
+
+.usage-card {
+  background: var(--color-white);
+  padding: 2.5rem;
+  border-radius: 20px;
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.08);
+  position: relative;
+  transition: all 0.3s ease;
+
+  &:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 12px 40px rgba(0, 0, 0, 0.12);
+  }
+}
+
+.usage-number {
+  position: absolute;
+  top: -1rem;
+  left: 2rem;
+  width: 3.5rem;
+  height: 3.5rem;
+  background: linear-gradient(
+    135deg,
+    var(--portfolio-orange),
+    var(--portfolio-dark-orange)
+  );
+  color: var(--color-white);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.5rem;
+  font-weight: 800;
+  box-shadow: 0 4px 15px rgba(255, 138, 0, 0.4);
+}
+
+.usage-title {
+  font-size: 1.375rem;
+  font-weight: 700;
+  color: var(--portfolio-dark);
+  margin: 1.5rem 0 1rem;
+}
+
+.usage-description {
+  font-size: 1rem;
+  color: var(--color-text-gray);
+  line-height: 1.7;
+  margin: 0;
+}
+
+// Responsive
+@media (max-width: 767px) {
+  .section-title {
+    font-size: 1.75rem;
+  }
+
+  .usage-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 576px) {
+  .usage-card {
+    padding: 1.5rem;
+  }
+}

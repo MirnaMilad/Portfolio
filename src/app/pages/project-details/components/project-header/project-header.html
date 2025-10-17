@@ -1,0 +1,50 @@
+<header class="project-header">
+  <div class="header-top">
+    <div class="header-content">
+      <img
+        [src]="project().image"
+        [alt]="project().title + ' logo'"
+        class="project-logo"
+        loading="lazy" />
+      <div class="header-text">
+        <h1 class="project-title">{{ project().title }}</h1>
+        @if (project().subtitle) {
+          <p class="project-subtitle">{{ project().subtitle }}</p>
+        }
+      </div>
+      @if (project().featured) {
+        <span class="featured-badge" aria-label="Featured project">
+          <i class="bi bi-star-fill" aria-hidden="true"></i>
+          Featured
+        </span>
+      }
+    </div>
+  </div>
+
+  <!-- Quick Stats -->
+  <div class="project-stats">
+    <div class="stat-item">
+      <i class="bi bi-code-square" aria-hidden="true"></i>
+      <div class="stat-content">
+        <span class="stat-label">Category</span>
+        <span class="stat-value">{{ project().category | titlecase }}</span>
+      </div>
+    </div>
+    <div class="stat-item">
+      <i class="bi bi-tools" aria-hidden="true"></i>
+      <div class="stat-content">
+        <span class="stat-label">Tech Stack</span>
+        <span class="stat-value">
+          {{ project().technologies.length }} Technologies
+        </span>
+      </div>
+    </div>
+    <div class="stat-item">
+      <i class="bi bi-star-fill" aria-hidden="true"></i>
+      <div class="stat-content">
+        <span class="stat-label">Status</span>
+        <span class="stat-value">{{ project().status || 'Active' }}</span>
+      </div>
+    </div>
+  </div>
+</header>

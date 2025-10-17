@@ -1,0 +1,15 @@
+<section class="usage-section">
+  <h2 class="section-title">
+    <i class="bi bi-book" aria-hidden="true"></i>
+    How to Use
+  </h2>
+  <div class="usage-grid">
+    @for (step of usageSteps(); track step.title; let i = $index) {
+      <div class="usage-card">
+        <div class="usage-number">{{ i + 1 }}</div>
+        <h3 class="usage-title">{{ step.title }}</h3>
+        <p class="usage-description">{{ step.description }}</p>
+      </div>
+    }
+  </div>
+</section>

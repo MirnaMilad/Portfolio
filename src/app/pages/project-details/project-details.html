@@ -1,0 +1,42 @@
+<section class="project-details-section">
+  @if (project(); as proj) {
+    <div class="container">
+      <nav class="back-navigation" aria-label="Breadcrumb">
+        <a routerLink="/projects" class="back-link">
+          <i class="bi bi-arrow-left" aria-hidden="true"></i>
+          <span>Back to Projects</span>
+        </a>
+      </nav>
+
+      <app-project-header [project]="proj" />
+
+      @if (proj.features && proj.features.length > 0) {
+        <app-project-features [features]="proj.features" />
+      }
+
+      <div class="overview-grid">
+        <app-project-overview [project]="proj" />
+
+        <app-tech-stack [project]="proj" />
+      </div>
+
+      @if (proj.usageSteps && proj.usageSteps.length > 0) {
+        <app-usage-guide [usageSteps]="proj.usageSteps" />
+      }
+
+      <app-project-actions [project]="proj" />
+    </div>
+  } @else {
+    <div class="container">
+      <div class="not-found">
+        <i class="bi bi-exclamation-triangle" aria-hidden="true"></i>
+        <h2>Project Not Found</h2>
+        <p>The project you're looking for doesn't exist.</p>
+        <a routerLink="/projects" class="btn-primary">
+          <i class="bi bi-arrow-left" aria-hidden="true"></i>
+          <span>Back to Projects</span>
+        </a>
+      </div>
+    </div>
+  }
+</section>

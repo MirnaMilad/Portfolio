@@ -1,0 +1,23 @@
+<article class="overview-section">
+  <h2 class="section-title">
+    <i class="bi bi-file-text" aria-hidden="true"></i>
+    Project Overview
+  </h2>
+  <p class="project-description">
+    {{ project().longDescription || project().description }}
+  </p>
+
+  @if (project().highlights?.length) {
+    <div class="highlights">
+      <h3 class="highlights-title">What Makes It Special</h3>
+      <ul class="highlights-list">
+        @for (highlight of project().highlights; track highlight.text) {
+          <li>
+            <i class="bi bi-check-circle-fill" aria-hidden="true"></i>
+            {{ highlight.text }}
+          </li>
+        }
+      </ul>
+    </div>
+  }
+</article>

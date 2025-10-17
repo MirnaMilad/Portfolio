@@ -17,6 +17,14 @@ export const routes: Routes = [
       ),
   },
   {
+    path: 'projects/:id',
+    loadComponent: () =>
+      import('./pages/project-details/project-details').then(
+        (m: typeof import('./pages/project-details/project-details')) =>
+          m.ProjectDetails
+      ),
+  },
+  {
     path: 'skills',
     loadComponent: () =>
       import('./pages/skills/skills').then(

@@ -10,19 +10,21 @@
     <div class="projects-grid">
       @for (project of projects(); track project.id) {
         <article class="project-card" [class.featured]="project.featured">
-          <div class="project-image">
-            <img [src]="project.image" [alt]="project.title + ' screenshot'" />
-            @if (project.featured) {
-              <span class="featured-badge" aria-label="Featured project">
-                <i class="bi bi-star-fill" aria-hidden="true"></i>
-                Featured
-              </span>
-            }
-          </div>
+          <div class="project-card-inner">
+            <div class="project-header-card">
+              <div class="project-logo-wrapper">
+                <img
+                  [src]="project.image"
+                  [alt]="project.title + ' logo'"
+                  class="project-logo"
+                  loading="lazy" />
+              </div>
+              <h2 class="project-title">{{ project.title }}</h2>
+            </div>
 
-          <div class="project-content">
-            <h2 class="project-title">{{ project.title }}</h2>
-            <p class="project-description">{{ project.description }}</p>
+            <p class="project-description">
+              {{ project.description | truncate: 150 }}
+            </p>
 
             <div class="project-tech">
               @for (tech of project.technologies; track tech) {
@@ -30,31 +32,36 @@
               }
             </div>
 
-            <div class="project-links">
-              @if (project.liveUrl) {
+            <div class="project-footer">
+              <div class="project-actions">
                 <a
-                  [href]="project.liveUrl"
-                  class="btn-primary"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  [attr.aria-label]="'View ' + project.title + ' live demo'">
-                  <i class="bi bi-box-arrow-up-right" aria-hidden="true"></i>
-                  <span>Live Demo</span>
+                  [routerLink]="['/projects', project.id]"
+                  class="btn-details"
+                  [attr.aria-label]="'View ' + project.title + ' details'">
+                  <span>View Details</span>
+                  <i class="bi bi-arrow-right" aria-hidden="true"></i>
                 </a>
-              }
-              @if (project.githubUrl) {
-                <a
-                  [href]="project.githubUrl"
-                  class="btn-secondary"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  [attr.aria-label]="
-                    'View ' + project.title + ' source code on GitHub'
-                  ">
-                  <i class="bi bi-github" aria-hidden="true"></i>
-                  <span>Source Code</span>
-                </a>
-              }
+                @if (project.githubUrl) {
+                  <a
+                    [href]="project.githubUrl"
+                    class="btn-icon"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    [attr.aria-label]="'View ' + project.title + ' on GitHub'">
+                    <i class="bi bi-github" aria-hidden="true"></i>
+                  </a>
+                }
+                @if (project.liveUrl) {
+                  <a
+                    [href]="project.liveUrl"
+                    class="btn-icon"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    [attr.aria-label]="'View ' + project.title + ' live demo'">
+                    <i class="bi bi-box-arrow-up-right" aria-hidden="true"></i>
+                  </a>
+                }
+              </div>
             </div>
           </div>
         </article>

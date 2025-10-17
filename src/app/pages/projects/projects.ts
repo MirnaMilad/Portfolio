@@ -4,12 +4,14 @@ import {
   signal,
   type WritableSignal,
 } from '@angular/core';
+import { RouterLink } from '@angular/router';
 import type { Project } from './projects.model';
 import { PROJECTS } from './projects.config';
+import { TruncatePipe } from './pipes/truncate.pipe';
 
 @Component({
   selector: 'app-projects',
-  imports: [],
+  imports: [RouterLink, TruncatePipe],
   templateUrl: './projects.html',
   styleUrl: './projects.scss',
   changeDetection: ChangeDetectionStrategy.OnPush,

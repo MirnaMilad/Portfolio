@@ -1,0 +1,31 @@
+<div class="project-actions">
+  @if (project().liveUrl) {
+    <a
+      [href]="project().liveUrl"
+      class="btn-primary btn-large"
+      target="_blank"
+      rel="noopener noreferrer"
+      [attr.aria-label]="'Visit ' + project().title + ' live site'">
+      <i class="bi bi-box-arrow-up-right" aria-hidden="true"></i>
+      <span>View Live Demo</span>
+    </a>
+  }
+  @if (project().githubUrl) {
+    <a
+      [href]="project().githubUrl"
+      class="btn-secondary btn-large"
+      target="_blank"
+      rel="noopener noreferrer"
+      [attr.aria-label]="'View ' + project().title + ' on GitHub'">
+      <i class="bi bi-github" aria-hidden="true"></i>
+      <span>View Source Code</span>
+    </a>
+  }
+  <a
+    routerLink="/contact"
+    class="btn-contact btn-large"
+    [attr.aria-label]="'Contact about ' + project().title">
+    <i class="bi bi-envelope" aria-hidden="true"></i>
+    <span>Discuss This Project</span>
+  </a>
+</div>
